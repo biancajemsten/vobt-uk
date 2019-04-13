@@ -8,7 +8,7 @@ provider:
   name: aws
   runtime: nodejs8.10
 
-# you can overwrite defaults here
+  # you can overwrite defaults here
   stage: dev
   region: eu-west-2
 
@@ -44,8 +44,8 @@ provider:
 functions:
   hello:
     handler: handler.hello
-    events: 
-      - http: 
+    events:
+      - http:
           path: /hello # Path for this endpoint
           method: GET # HTTP method for this endpoint
           cors: true # Turn on CORS for this endpoint, but don't forget to return the right header in your response
@@ -95,5 +95,17 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
-plugins: 
+resources:
+  Resources:
+    S3BucketVOBT:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: vobt-uk-bucket-dev
+
+# Print out the name of the bucket that is created
+Outputs:
+  VOBTBucketName:
+    Value:
+      Ref: vobt-uk-bucket-dev
+plugins:
   - serverless-offline
