@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  withStyles
-} from "@material-ui/core/styles";
-import { Typography, Button } from "@material-ui/core";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core";
 import Main from "./Main.js";
 import Header from "./Header";
 
+const styles = {
+  body: {
+    minHeight: "100%",
+    position: "relative"
+  },
+  main: {
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: "center"
+  }
+};
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -39,13 +46,13 @@ class App extends Component {
     const classes = this.props;
     return (
       <MuiThemeProvider theme={theme}>
-        <Header />
-        <Typography variant="h1">Hi</Typography>
-        <Button color="secondary">hi</Button>
-        <Main />
+        <div className={classes.body}>
+          <Header />
+          <Main className={classes.main} />
+        </div>
       </MuiThemeProvider>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Grid,
-  AppBar,
-  Toolbar,
-  Typography,
-  withStyles
-} from "@material-ui/core";
+import { Grid, withStyles } from "@material-ui/core";
 import HeaderButton from "./atomic-components/Buttons/HeaderButton";
 
 const styles = theme => ({
