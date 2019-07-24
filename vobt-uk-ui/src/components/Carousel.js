@@ -14,7 +14,10 @@ const styles = theme => ({
   },
   chevron: {
     fontSize: "60px",
-    color: theme.palette.secondary.main
+    color: theme.palette.secondary.main,
+    "@media (max-width: 768px)": {
+      fontSize: "30px"
+    }
   },
   imageContainer: {
     width: "80%"

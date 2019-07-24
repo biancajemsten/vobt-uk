@@ -8,11 +8,6 @@ const styles = {
   body: {
     minHeight: "100%",
     position: "relative"
-  },
-  main: {
-    flexGrow: 1,
-    display: "flex",
-    justifyContent: "center"
   }
 };
 const theme = createMuiTheme({
@@ -43,7 +38,7 @@ const theme = createMuiTheme({
 
 class App extends Component {
   render() {
-    const classes = this.props;
+    const { classes } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.body}>

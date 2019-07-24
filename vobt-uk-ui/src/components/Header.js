@@ -26,6 +26,8 @@ class Header extends React.Component {
     };
   }
 
+  pageTitles = ["Home", "Properties", "Services", "About", "Contact"];
+
   componentWillMount() {
     window.addEventListener("resize", this.handleWindowSizeChange);
   }
@@ -38,7 +40,7 @@ class Header extends React.Component {
   render() {
     const { classes } = this.props;
     const { width } = this.state;
-    const isMobile = width <= 500;
+    const isMobile = width <= 768;
 
     if (isMobile) {
       return (
@@ -64,7 +66,7 @@ class Header extends React.Component {
                 <a href="#">
                   <li>Contact</li>
                 </a>
-                <a href="https://erikterwan.com/" target="_blank">
+                <a href="#" target="_blank">
                   <li>Show me more</li>
                 </a>
               </ul>
