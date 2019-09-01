@@ -9,7 +9,7 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    maxWidth: "1200px",
+    // maxWidth: "1200px",
     margin: "0 auto"
   },
   chevron: {
@@ -20,7 +20,7 @@ const styles = theme => ({
     }
   },
   imageContainer: {
-    width: "80%"
+    // width: "80%"
   },
   slideButton: {
     radius: 0,
@@ -30,6 +30,9 @@ const styles = theme => ({
   stepper: {
     justifyContent: "center",
     background: "#FFF"
+  },
+  carouselImage: {
+    height: "85vh"
   }
 });
 
@@ -58,7 +61,7 @@ class Carousel extends React.Component {
     console.log("starting slideshow");
     const interval = setInterval(() => {
       this.nextSlide();
-    }, 4500);
+    }, 5500);
     this.setState({ interval });
   }
 
@@ -103,7 +106,10 @@ class Carousel extends React.Component {
               </svg> */}
           </button>
           <div className={classes.imageContainer}>
-            <img src={imageArray[this.state.currentIndex]} width="100%" />
+            <img
+              src={imageArray[this.state.currentIndex]}
+              className={classes.carouselImage}
+            />
             <MobileStepper
               variant="dots"
               steps={imageArray.length}

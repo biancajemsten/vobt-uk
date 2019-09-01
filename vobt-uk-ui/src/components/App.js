@@ -13,7 +13,8 @@ const styles = {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#000000"
+      main: "#000000",
+      light: "#FFFFFF"
     },
     secondary: { main: "#00066a", light: "#323787" }
   },
@@ -22,10 +23,8 @@ const theme = createMuiTheme({
     useNextVariants: true,
     // Use the system font instead of the default Roboto font.
     fontFamily: [
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
+      '"Helvetica Neue UltraLight"',
+      '"Helvetica 35 Thin"',
       '"Helvetica Neue"',
       "Arial",
       "sans-serif",
@@ -38,12 +37,13 @@ const theme = createMuiTheme({
 
 class App extends Component {
   render() {
+    const header = document.getElementById("headerContainer");
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.body}>
           <Header />
-          <Main className={classes.main} />
+          <Main header={header} className={classes.main} />
         </div>
       </MuiThemeProvider>
     );

@@ -4,17 +4,56 @@ import HeaderButton from "./atomic-components/Buttons/HeaderButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
+import { CloudinaryContext } from "cloudinary-react";
+import { Link } from "react-router-dom";
+
+const CLOUDINARY_NAME = process.env.REACT_APP_CLOUDINARY_NAME;
 
 const styles = theme => ({
-  headerContainer: {
-    padding: "20px",
-    borderBottom: `1px solid ${theme.palette.secondary.main}`,
-    position: "sticky"
+  headerTop: {
+    padding: "0 20px",
+    borderBottom: `1px solid ${theme.palette.secondary.main}`
+  },
+  headerSticky: {
+    backgroundColor: theme.palette.primary.light,
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    padding: "0 20px",
+    borderBottom: `1px solid ${theme.palette.secondary.main}`
   },
   headerContainerMobile: {
     position: "relative",
     borderBottom: `1px solid ${theme.palette.secondary.main}`,
     height: "70px"
+  },
+  house: {
+    height: "100px",
+    width: "60%",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundImage:
+      "url('https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/v1557071409/logo/vobtukhouse')",
+    "@media (max-width: 768px)": {
+      height: "80px"
+    }
+  },
+  logo: {
+    height: "39px",
+    width: "100%",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundImage:
+      "url('https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/v1557071409/logo/vobtuklogo')",
+    "@media (max-width: 768px)": {
+      height: "33px"
+    }
+  },
+  link: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start"
   }
 });
 
@@ -76,64 +115,70 @@ class Header extends React.Component {
       );
     } else {
       return (
-        <div className={classes.headerContainer}>
-          <Grid
-            container
-            alignContent="center"
-            justify="flex-end"
-            alignItems="flex-end"
-          >
+        <div id="headerContainer" className={classes.headerSticky}>
+          <CloudinaryContext cloudName={CLOUDINARY_NAME}>
             <Grid
               container
-              justify="center"
+              alignContent="center"
+              justify="space-around"
               alignItems="center"
-              item
-              xs={2}
-              s={1}
             >
-              <HeaderButton>Home</HeaderButton>
+              <Grid
+                direction="row"
+                container
+                justify="center"
+                alignItems="center"
+                item
+                xs={3}
+                s={2}
+              >
+                <Link className={classes.link} to={"/"}>
+                  <div className={classes.house} />
+                  <div className={classes.logo} />
+                </Link>
+              </Grid>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                item
+                xs={2}
+                s={1}
+              >
+                <HeaderButton to="/index">Properties</HeaderButton>
+              </Grid>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                item
+                xs={2}
+                s={1}
+              >
+                <HeaderButton>Services</HeaderButton>
+              </Grid>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                item
+                xs={2}
+                s={1}
+              >
+                <HeaderButton>About</HeaderButton>
+              </Grid>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                item
+                xs={2}
+                s={1}
+              >
+                <HeaderButton>Contact</HeaderButton>
+              </Grid>
             </Grid>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              item
-              xs={2}
-              s={1}
-            >
-              <HeaderButton>Properties</HeaderButton>
-            </Grid>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              item
-              xs={2}
-              s={1}
-            >
-              <HeaderButton>Services</HeaderButton>
-            </Grid>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              item
-              xs={2}
-              s={1}
-            >
-              <HeaderButton>About Us</HeaderButton>
-            </Grid>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              item
-              xs={2}
-              s={1}
-            >
-              <HeaderButton>Contact</HeaderButton>
-            </Grid>
-          </Grid>
+          </CloudinaryContext>
         </div>
       );
     }

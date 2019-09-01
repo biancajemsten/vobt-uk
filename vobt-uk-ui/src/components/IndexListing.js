@@ -5,15 +5,17 @@ const CLOUDINARY_NAME = process.env.REACT_APP_CLOUDINARY_NAME;
 
 const styles = theme => ({
   listingContainer: {
-    border: `2px solid ${theme.palette.secondary.main}`,
+    border: `1px solid ${theme.palette.secondary.main}`,
     height: "auto",
     width: "100%",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start"
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    borderRadius: "40px",
+    overflow: "hidden"
   },
   textContainer: {
-    padding: "5px"
+    padding: "15px"
   }
 });
 
@@ -22,13 +24,16 @@ function IndexListing({ classes, listing }) {
     <div className={classes.listingContainer}>
       <CloudinaryContext cloudName={CLOUDINARY_NAME}>
         <img
-          height="150px"
-          width="200px"
+          object-fit="cover"
+          height="100%"
+          width="100%"
           src="https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/v1557071409/properties/collingham_1"
         />
       </CloudinaryContext>
       <div className={classes.textContainer}>
-        <Typography variant="h6">{listing.name}</Typography>
+        <Typography align="center" variant="h5">
+          {listing.name}
+        </Typography>
         <Typography>{listing.description}</Typography>
       </div>
     </div>

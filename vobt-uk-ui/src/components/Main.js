@@ -9,17 +9,13 @@ const styles = {
     flexGrow: 1,
     display: "flex",
     justifyContent: "center",
-    margin: "0 auto",
-    maxWidth: "768px",
-    alignSelf: "center",
-    padding: "5vh 10vw 0",
-    "@media (max-width: 768px)": {
-      padding: "2vh 2vw 0"
-    }
+    margin: "100px auto",
+    alignSelf: "center"
+    // padding: "5vh 0 0"
   }
 };
 
-function Main({ classes }) {
+function Main({ classes, header }) {
   return (
     <div className={classes.main}>
       <Switch>
