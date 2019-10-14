@@ -10,7 +10,6 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     margin: "100px auto 140px",
-    height: "calc(100vh - 100px)",
     "@media (max-width: 768px)": {
       margin: "0px auto 140px"
     },
