@@ -3,14 +3,24 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core";
 import Main from "./Main.js";
 import Header from "./Header";
-
+import Footer from "./Footer";
 const styles = {
   body: {
-    minHeight: "100%",
-    position: "relative"
+    minHeight: "100vh",
+    position: "relative",
+    overflow: "hidden"
   }
 };
 const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 480,
+      md: 768,
+      lg: 992,
+      xl: 1200
+    }
+  },
   palette: {
     primary: {
       main: "#000000",
@@ -44,6 +54,7 @@ class App extends Component {
         <div className={classes.body}>
           <Header />
           <Main header={header} className={classes.main} />
+          <Footer />
         </div>
       </MuiThemeProvider>
     );

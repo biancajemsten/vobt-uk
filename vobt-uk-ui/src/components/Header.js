@@ -20,7 +20,8 @@ const styles = theme => ({
     top: 0,
     width: "100%",
     padding: "0 20px",
-    borderBottom: `1px solid ${theme.palette.secondary.main}`
+    borderBottom: `1px solid ${theme.palette.secondary.main}`,
+    zIndex: "2"
   },
   headerContainerMobile: {
     position: "relative",
@@ -145,7 +146,7 @@ class Header extends React.Component {
                 xs={2}
                 s={1}
               >
-                <HeaderButton to="/index">Properties</HeaderButton>
+                <HeaderButton to="/properties">Properties</HeaderButton>
               </Grid>
               <Grid
                 container

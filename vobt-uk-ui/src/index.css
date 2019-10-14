@@ -32,7 +32,7 @@ code {
   position: relative;
   top: 25px;
   left: 10vw;
-  width: 90vw;
+  width: 100vw;
   z-index: 1;
 
   -webkit-user-select: none;
@@ -116,8 +116,8 @@ code {
 #menu {
   position: absolute;
   width: 100vw;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
+  margin: -100px 0 0 -75px;
+  padding: 50px 70px;
   padding-top: 125px;
   height: 100vh;
   background: #ededed;

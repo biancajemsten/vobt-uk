@@ -5,7 +5,9 @@ const CLOUDINARY_NAME = process.env.REACT_APP_CLOUDINARY_NAME;
 
 const styles = theme => ({
   listingContainer: {
-    border: `1px solid ${theme.palette.secondary.main}`,
+    // border: `1px solid ${theme.palette.secondary.main}`,
+    boxShadow:
+      "0 5px 15px 0  rgba(8, 8, 8, 0.26), 0 5px 5px rgba(0, 0, 0, 0.19)",
     height: "auto",
     width: "100%",
     display: "flex",

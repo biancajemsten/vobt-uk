@@ -9,9 +9,12 @@ const styles = {
     flexGrow: 1,
     display: "flex",
     justifyContent: "center",
-    margin: "100px auto",
+    margin: "100px auto 140px",
+    height: "calc(100vh - 100px)",
+    "@media (max-width: 768px)": {
+      margin: "0px auto 140px"
+    },
     alignSelf: "center"
-    // padding: "5vh 0 0"
   }
 };
 
@@ -20,7 +23,7 @@ function Main({ classes, header }) {
     <div className={classes.main}>
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/index" component={PropertiesIndex} />
+        <Route exact path="/properties" component={PropertiesIndex} />
       </Switch>
     </div>
   );
