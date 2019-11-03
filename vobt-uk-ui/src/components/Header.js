@@ -66,7 +66,7 @@ class Header extends React.Component {
     };
   }
 
-  pageTitles = ["Home", "Properties", "Services", "About", "Contact"];
+  pageTitles = ["Home", "Properties", "About", "Contact"];
 
   componentWillMount() {
     window.addEventListener("resize", this.handleWindowSizeChange);
@@ -94,20 +94,17 @@ class Header extends React.Component {
               <span />
 
               <ul id="menu">
-                <a href="#">
+                <a href="/">
                   <li>Home</li>
+                </a>
+                <a href="/properties">
+                  <li>Properties</li>
                 </a>
                 <a href="#">
                   <li>About</li>
                 </a>
-                <a href="#">
-                  <li>Info</li>
-                </a>
-                <a href="#">
+                <a href="/contact">
                   <li>Contact</li>
-                </a>
-                <a href="#" target="_blank">
-                  <li>Show me more</li>
                 </a>
               </ul>
             </div>
@@ -148,6 +145,7 @@ class Header extends React.Component {
               >
                 <HeaderButton to="/properties">Properties</HeaderButton>
               </Grid>
+
               <Grid
                 container
                 justify="center"
@@ -156,7 +154,7 @@ class Header extends React.Component {
                 xs={2}
                 s={1}
               >
-                <HeaderButton>Services</HeaderButton>
+                <HeaderButton to="/about">About</HeaderButton>
               </Grid>
               <Grid
                 container
@@ -166,17 +164,7 @@ class Header extends React.Component {
                 xs={2}
                 s={1}
               >
-                <HeaderButton>About</HeaderButton>
-              </Grid>
-              <Grid
-                container
-                justify="center"
-                alignItems="center"
-                item
-                xs={2}
-                s={1}
-              >
-                <HeaderButton>Contact</HeaderButton>
+                <HeaderButton to={"/contact"}>Contact</HeaderButton>
               </Grid>
             </Grid>
           </CloudinaryContext>

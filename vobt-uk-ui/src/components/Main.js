@@ -2,6 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./page-components/Homepage";
 import PropertiesIndex from "./page-components/PropertiesIndex";
+import Contact from "./page-components/Contact";
+import About from "./page-components/About";
 import { withStyles } from "@material-ui/core";
 
 const styles = {
@@ -23,6 +25,8 @@ function Main({ classes, header }) {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/properties" component={PropertiesIndex} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/about" component={About} />
       </Switch>
     </div>
   );
