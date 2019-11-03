@@ -100,7 +100,7 @@ class Header extends React.Component {
                 <a href="/properties">
                   <li>Properties</li>
                 </a>
-                <a href="#">
+                <a href="/about">
                   <li>About</li>
                 </a>
                 <a href="/contact">
