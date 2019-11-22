@@ -39,9 +39,15 @@ const styles = theme => ({
     color: theme.palette.secondary.main,
     letterSpacing: "2px",
     marginBottom: "20px",
+    display: "flex",
     "& a": {
       textDecoration: "none",
-      color: "inherit"
+      color: "inherit",
+      flexGrow: "1"
+    },
+    "& :nth-child(2)": {
+      borderRight: "1px solid",
+      borderLeft: "1px solid"
     }
   }
 });
@@ -50,11 +56,11 @@ function AboutView({ classes }) {
   return (
     <CloudinaryContext cloudName={CLOUDINARY_NAME}>
       <div className={classes.aboutWrapper}>
-        <img src="https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/v1557071409/about/olivia" />
+        <img src="https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/w_300/v1557071409/about/olivia" />
         <div className={classes.contentWrapper}>
           <header className={classes.pageNav}>
-            <a href="#property-development">Property Development </a>|
-            <a href="#exclusive-search-agency"> Exclusive Search Agency </a>|
+            <a href="#property-development">Property Development </a>
+            <a href="#exclusive-search-agency">Exclusive Search Agency</a>
             <a href="#interior-design"> Interior Design</a>
           </header>
           <Typography variant="body1">

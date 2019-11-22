@@ -13,7 +13,7 @@ const styles = {
     justifyContent: "center",
     margin: "100px auto 140px",
     "@media (max-width: 768px)": {
-      margin: "0px auto 140px"
+      margin: "100px auto 140px"
     },
     alignSelf: "center"
   }

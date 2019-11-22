@@ -6,7 +6,8 @@ import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import { CloudinaryContext } from "cloudinary-react";
 import { Link } from "react-router-dom";
-
+import NavIcon from "./atomic-components/Navigation/NavIcon";
+import MobileNavMenu from "./atomic-components/Navigation/MobileNavMenu";
 const CLOUDINARY_NAME = process.env.REACT_APP_CLOUDINARY_NAME;
 
 const styles = theme => ({
@@ -24,9 +25,15 @@ const styles = theme => ({
     zIndex: "2"
   },
   headerContainerMobile: {
-    position: "relative",
-    borderBottom: `1px solid ${theme.palette.secondary.main}`,
-    height: "70px"
+    backgroundColor: theme.palette.primary.light,
+    height: "70px",
+    padding: "24px",
+    position: "fixed",
+    left: "0",
+    top: "0",
+    right: "0",
+    zIndex: "10",
+    borderBottom: `1px solid ${theme.palette.secondary.main}`
   },
   house: {
     height: "100px",
@@ -58,12 +65,21 @@ const styles = theme => ({
   }
 });
 
+const navItems = [
+  { name: "Home", slug: "/" },
+  { name: "Properties", slug: "/properties" },
+  { name: "About", slug: "/about" },
+  { name: "Contact", slug: "/contact" }
+];
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: window.innerWidth
+      width: window.innerWidth,
+      active: false
     };
+    this.toggleNav = this.toggleNav.bind(this);
   }
 
   pageTitles = ["Home", "Properties", "About", "Contact"];
@@ -77,39 +93,27 @@ class Header extends React.Component {
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
   };
+
+  toggleNav(e) {
+    e.preventDefault();
+    this.setState(state => ({
+      active: !state.active
+    }));
+  }
   render() {
     const { classes } = this.props;
     const { width } = this.state;
     const isMobile = width <= 768;
+    console.log(this.props);
 
     if (isMobile) {
       return (
-        <div className={classes.headerContainerMobile}>
-          <nav role="navigation">
-            <div id="menuToggle">
-              <input type="checkbox" />
-
-              <span />
-              <span />
-              <span />
-
-              <ul id="menu">
-                <a href="/">
-                  <li>Home</li>
-                </a>
-                <a href="/properties">
-                  <li>Properties</li>
-                </a>
-                <a href="/about">
-                  <li>About</li>
-                </a>
-                <a href="/contact">
-                  <li>Contact</li>
-                </a>
-              </ul>
-            </div>
-          </nav>
-        </div>
+        <>
+          <header className={classes.headerContainerMobile}>
+            <NavIcon active={this.state.active} toggleNav={this.toggleNav} />
+          </header>
+          <MobileNavMenu navItems={navItems} active={this.state.active} />
+        </>
       );
     } else {
       return (
@@ -173,5 +177,4 @@ class Header extends React.Component {
     }
   }
 }
-
 export default withStyles(styles)(Header);
