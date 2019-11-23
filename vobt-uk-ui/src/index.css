@@ -15,12 +15,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 
-#menu a {
+/* #menu a {
   text-decoration: none;
   color: #00066a;
 
@@ -50,10 +50,10 @@ code {
   cursor: pointer;
 
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+/* z-index: 2; and place it over the hamburger */
 
-  -webkit-touch-callout: none;
-}
+/* -webkit-touch-callout: none;
+} */
 
 /*
   * Just a quick hamburger

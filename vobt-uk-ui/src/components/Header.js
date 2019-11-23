@@ -1,9 +1,6 @@
 import React from "react";
 import { Grid, withStyles } from "@material-ui/core";
 import HeaderButton from "./atomic-components/Buttons/HeaderButton";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import IconButton from "@material-ui/core/IconButton";
 import { CloudinaryContext } from "cloudinary-react";
 import { Link } from "react-router-dom";
 import NavIcon from "./atomic-components/Navigation/NavIcon";
@@ -27,7 +24,7 @@ const styles = theme => ({
   headerContainerMobile: {
     backgroundColor: theme.palette.primary.light,
     height: "70px",
-    padding: "24px",
+    padding: "15px",
     position: "fixed",
     left: "0",
     top: "0",
@@ -46,9 +43,22 @@ const styles = theme => ({
       height: "80px"
     }
   },
+  logoMobile: {
+    display: "block",
+    position: "absolute",
+    top: "45%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+    width: "150px",
+    height: "39px",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundImage:
+      "url('https://res.cloudinary.com/dqoq2cv7k/image/upload/q_auto/v1557071409/logo/vobtuklogo')"
+  },
   logo: {
     height: "39px",
-    width: "100%",
+    width: "auto%",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundImage:
@@ -111,8 +121,15 @@ class Header extends React.Component {
         <>
           <header className={classes.headerContainerMobile}>
             <NavIcon active={this.state.active} toggleNav={this.toggleNav} />
+            <CloudinaryContext cloudName={CLOUDINARY_NAME}>
+              <div className={classes.logoMobile}></div>
+            </CloudinaryContext>
           </header>
-          <MobileNavMenu navItems={navItems} active={this.state.active} />
+          <MobileNavMenu
+            toggleNav={this.toggleNav}
+            navItems={navItems}
+            active={this.state.active}
+          />
         </>
       );
     } else {

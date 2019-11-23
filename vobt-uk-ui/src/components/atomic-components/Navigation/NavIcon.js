@@ -50,8 +50,6 @@ const styles = theme => ({
   },
   navAction: {
     position: "absolute",
-    left: "-12px",
-    top: "-12px",
     width: "48px",
     height: "48px",
     appearance: "none",
@@ -60,17 +58,12 @@ const styles = theme => ({
     outline: "0",
     padding: "12px",
     cursor: "pointer"
-    // "&:focus": {
-    //   outline: `1px dashed ${theme.palette.primary.main}`
-    // }
   },
   innerHeader: {
     position: "relative",
     height: "24px"
   }
 });
-
-// const getNavClass
 
 const NavIcon = ({ classes, active, toggleNav }) => {
   function getNavClass() {
